@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>This are books</h1>
+    {% for book in books %}
+    <a href="/{{book.id}}">{{book.title}}</a>
+    {% endfor %}
+    <a href="/create">Insert a new Record</a>
+  </body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>All Books Information</h1>
+    {% for book in books %}
+    <ul>
+        <li><a href="{% url 'update' book.pk %}">UPDATE</a></li>
+        <li><a href="{% url 'delete' book.pk %}">DELETE</a></li>
+        <li>Title:<strong>{{book.title}}</strong></li>
+        <li><strong>{{book.author}}</strong></li>
+        <li><strong>{{book.pages}}</strong></li>
+        <li><strong>{{book.price}}</strong></li>
+    </ul>
+    <hr>
+    {% endfor %}
+</body>
+</html>

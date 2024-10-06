@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %}
+    {% block body_block %}
+    <h1>List of All Companies using Details class</h1>
+    <ul>
+        <li>{{ company.name }}</li>
+        <li>{{ company.location }}</li>
+        <li>{{ company.ceo }}</li>
+    </ul>
+    <hr>
+    {% endblock %}
