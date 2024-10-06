@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hyderabad Job Info</h1>
+    {% if jobs_list %}
+    <table>
+        <thead>
+            <th>Date</th>
+            <th>Company</th>
+            <th>Title</th>
+            <th>Eligibily</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+        </thead>
+        {% for job in jobs_list %}
+        <tr>
+            <td>{{job.date}}</td>
+            <td>{{job.Company}}</td>
+            <td>{{job.title}}</td>
+            <td>{{job.eligibility}}</td>
+            <td>{{job.address}}</td>
+            <td>{{job.email}}</td>
+            <td>{{job.phonenumber}}</td>
+        </tr>
+        {% endfor %}
+    {% else %}
+    <p>No  data found!!</p> 
+    {% endif %}
+    </table>
+</body>
+</html>
