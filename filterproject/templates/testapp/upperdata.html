@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+{%  load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/fp.css' %}" />
+</head>
+<body>
+    {% load cust_filters %}
+    {% for record in records %}
+    <h1>Name:{{record.name}} Information</h1>
+    <ul>
+        <li>Name:{{record.name | fmn:'2,5'}}</li>
+        <!-- <li>Name:{{record.name | upper}} </li> -->
+        <!-- <li>Name:{{record.name | ffu}} </li>
+        <li>Subject:{{record.subject | lower}}</li>
+        <li>Dept:{{record.name | title}}</li>
+        <li>Date:{{record.date |date:"d-m-Y"}}</li>
+        <li>Date:{{record.date |date:"m-d-Y"}}</li>
+        <li>Date:{{record.date |date:"d-m-y"}}</li>
+        <li>Date:{{record.date |date:"d/m/y"}}</li>
+        <li>Date:{{record.date |timesince}}</li> -->
+        <!--timesince:it is just consider months and days only -->
+        <!-- <li>Date:{{record.date |date:'l,F,J,Y'}}</li> -->
+    </ul><hr>
+    {% endfor %}
+</body>
+</html>
