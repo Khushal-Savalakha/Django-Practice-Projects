@@ -1,0 +1,22 @@
+h1 {
+    color: red !important;
+    text-align: center !important;
+    font-style: italic !important;
+}
+/* General styling for all navbar links */
+.nav-link {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+/* When a link is active, underline it */
+.nav-link.active {
+    text-decoration: underline !important;
+    font-weight: bold !important; /* Optional: Makes the active link bold */
+}
+
+/* Optional: Hover effect to indicate clickability */
+.nav-link:hover {
+    text-decoration: underline !important;
+    color: #007bff !important; /* Change color on hover */
+}
