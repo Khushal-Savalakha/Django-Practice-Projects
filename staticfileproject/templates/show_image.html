@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Static Files Demo</title>
+</head>
+<body>
+    <h1>Here Images are Fetched</h1>
+    <img src="{% static 'images/dubai_palm_jumeirah_island.jpg' %}" style="height:200px; width:200px;" alt="Dubai Palm Beach" />
+    <img src="{% static 'images/Natherland.jpg' %}" style="height:200px; width:200px;" alt="Natherland" />
+    <img src="{% static 'images/Zandmotor_RWSBeeldbank.jpg' %}" style="height:200px; width:200px;" alt="Zandmotor RWS Beeldbank" />
+</body>
+</html>
