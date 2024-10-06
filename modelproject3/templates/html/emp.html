@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% load static %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Student List</title>
+    <link rel="stylesheet" href="{% static 'css/emp1.css' %}" />
+  </head>
+  <body>
+    <h1>Student List</h1>
+
+    {% if student_list %}
+    <table>
+      <thead>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>Marks</th>
+      </thead>
+      {% for student in student_list %}
+      <tr>
+        <td>{{student.id}}</td>
+        <td>{{student.name}}</td>
+        <td>{{student.marks}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    {% else %}
+    <p>No data found!!!</p>
+    {% endif %}
+    <p> No records found </p>
+  </body>
+</html>
