@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+{% extends 'testapp/base.html' %} 
+{% block body_block %}
+<h1>Employee Aggregate Information</h1>
+<ul>
+    <!-- <li>Average Salary is :{{my_dict.avg1}}</li> -->
+    <h2><li>Average Salary:{{avg}}</li></h2>
+    <h2><li>Maximum Salary:{{max}}</li></h2>
+    <h2><li>Minimum Salary:{{min}}</li></h2>
+    <h2><li>Total Salary:{{sum}}</li></h2>
+    <h2><li>Number of Employees:{{count}}</li></h2>
+
+</ul>
+{% endblock body_block %}
