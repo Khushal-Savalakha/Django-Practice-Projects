@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Data</title>
+</head>
+<body>
+    <h1>Movie Data</h1>
+    
+    <form method="GET" action="{% url 'movie' %}">
+        <!-- <input type="text" name="searchMovie" placeholder="Search by Movie Title" value="{{ searchTerm }}"> -->
+        <input type="text" name="searchMovie" placeholder="Search by Movie Title" >
+        <button type="submit">Search</button>
+    </form>
+
+    <ul>
+        {% if searchTerm %}
+            <p>Search Results for "{{ searchTerm }}":</p>
+        {% endif %}
+        {% for movie in movies %}
+        <li>
+            <strong>{{ movie.title }}</strong>
+            <p>{{ movie.description }}</p>
+            <img src="{{ movie.image.url }}" alt="Movie Image" style="width:100px;height:auto;">
+        </li>
+        {% empty %}
+        <p>No movies found.</p>
+        {% endfor %}
+    </ul>
+</body>
+</html>
