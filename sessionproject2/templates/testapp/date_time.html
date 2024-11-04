@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Document</title>
+    <style>
+        /* Body styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        /* Center container styling */
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+        }
+
+        /* Heading styling */
+        h1 {
+            font-size: 26px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        /* Horizontal line styling */
+        hr {
+            margin: 20px 0;
+            border: 0;
+            height: 1px;
+            background-color: #ddd;
+        }
+
+        /* Span element styling for data display */
+        span.data {
+            font-style: italic;
+            color: #e63946;
+            font-weight: bold;
+        }
+
+        /* Link styling */
+        a {
+            display: inline-block;
+            text-decoration: none;
+            font-size: 16px;
+            color: #0077cc;
+            margin-top: 20px;
+            transition: color 0.3s;
+        }
+
+        /* Hover effect for links */
+        a:hover {
+            color: #0056a3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Hello:<span class="data">{{name}}</span></h1>
+        <hr>
+        <!-- <a href="/result">Click here to get date and time</a> -->
+        <a href="{% url 'result' %}">Click here to get Updated time</a>
+
+    </div>
+</body>
+</html>
