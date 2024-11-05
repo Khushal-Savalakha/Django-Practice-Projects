@@ -74,3 +74,5 @@ sessionproject2/
 ├── manage.py
 └── README.md
 ```
+
+![Add age](https://github.com/user-attachments/assets/13cef0b2-0996-42fe-93e8-366603be1e97)
