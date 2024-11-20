@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/ShowData.css' %}">
+</head>
+
+<body>
+    <h1 id="Heading">Employee Data</h1>
+    <img src="{% static 'images/jobs.jpeg' %}" style="height:200px;width:500px;" alt="Employee Queue" />
+    {% if emp_data %}
+    <table border="2">
+        <thead>
+            <!-- <th>Enployee Id</th> -->
+            <th>Name</th>
+            <th>Salary</th>
+            <!-- <th>Address</th> -->
+        </thead>
+        {% for emp in emp_data %}
+        <tr>
+            <!-- <td>{{emp.0}}</td>
+            <td>{{emp.1}} </td> -->
+            <td>{{emp.ename }}</td>
+            <td>{{emp.esal}} </td>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+    <p>No Data found!</p>
+    {% endif %}
+</body>
+
+</html>
