@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Count Page</h1>
+    <h2 id="ct"></h2>
+    <script>
+        var ws=new WebSocket('ws://127.0.0.1:8000/ws/asc/')
+        ws.onopen=function(event){
+            console.log('Websocket connection open...',event);
+            ws.send("Hi,Message from Client to Server....")
+        }
+
+        // ws.onmessage=function(event){
+        //     // When server send message we can see here
+        //     console.log("Event:",event);
+        //     console.log("Message Received from Server...",event.data,typeof(event.data));
+        //     document.getElementById("ct").innerText=event.data
+        // }
+
+        ws.onmessage=function(event){
+            // When server send message we can see here
+            console.log("Event:",event);
+            console.log("Message Received from Server...",event.data,typeof(event.data));
+            data=JSON.parse(event.data)
+            console.log("Parsed Data:",data,typeof(data));
+            document.getElementById("ct").innerText=data.count
+        }
+
+
+        ws.onerror=function(event){
+            console.log("Websocket Error Occured...",event); 
+        }
+
+        ws.onclose=function(event){
+            console.log("Websocket Connection Closed...",event); 
+        }
+    </script>
+
+  
+</body>
+</html>
