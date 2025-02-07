@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Pagination</title>
+</head>
+<body>
+    <h1>Advanced Pagination Example</h1>
+
+    <!-- Form to allow users to specify the number of items per page -->
+    <form method="get">
+        <label for="items_per_page">Items per page:</label>
+        <input type="number" id="items_per_page" name="items_per_page" value="{{ items_per_page }}">
+        <button type="submit">Update</button>
+    </form>
+
+    <!-- Display the paginated blog posts -->
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.title }} - {{ post.created_at }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Display pagination navigation -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if posts.has_previous %}
+                <a href="?page=1&items_per_page={{ items_per_page }}">&laquo; first</a>
+                <a href="?page={{ posts.previous_page_number }}&items_per_page={{ items_per_page }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ posts.number }} of {{ posts.paginator.num_pages }}.
+            </span>
+
+            {% if posts.has_next %}
+                <a href="?page={{ posts.next_page_number }}&items_per_page={{ items_per_page }}">next</a>
+                <a href="?page={{ posts.paginator.num_pages }}&items_per_page={{ items_per_page }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <!-- Display a range of page numbers for navigation -->
+    <div class="page-range">
+        {% for page_num in page_range %}
+            {% if page_num == posts.number %}
+                <strong>{{ page_num }}</strong>
+            {% elif page_num == paginator.ELLIPSIS %}
+                <span>{{ page_num }}</span>
+            {% else %}
+                <a href="?page={{ page_num }}&items_per_page={{ items_per_page }}">{{ page_num }}</a>
+            {% endif %}
+        {% endfor %}
+    </div>
+
+    <!-- Form to jump to a specific page -->
+    <form method="get">
+        <label for="jump_to_page">Jump to page:</label>
+        <input type="number" id="jump_to_page" name="page" min="1" max="{{ posts.paginator.num_pages }}">
+        <input type="hidden" name="items_per_page" value="{{ items_per_page }}">
+        <button type="submit">Go</button>
+    </form>
+</body>
+</html>

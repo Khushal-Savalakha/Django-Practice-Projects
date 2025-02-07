@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pagination Example</title>
+</head>
+<body>
+    <h1>Paginated Numbers</h1>
+
+    <!-- Form to allow users to specify the number of items per page -->
+    <form method="get">
+        <label for="items_per_page">Items per page:</label>
+        <input type="number" id="items_per_page" name="items_per_page" value="{{ items_per_page }}">
+        <button type="submit">Update</button>
+    </form>
+
+    <!-- Display the paginated numbers -->
+    <ul>
+        {% for number in numbers %}
+            <li>{{ number }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Display pagination navigation -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if numbers.has_previous %}
+                <a href="?page=1&items_per_page={{ items_per_page }}">&laquo; first</a>
+                <a href="?page={{ numbers.previous_page_number }}&items_per_page={{ items_per_page }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ numbers.number }} of {{ numbers.paginator.num_pages }}.
+            </span>
+
+            {% if numbers.has_next %}
+                <a href="?page={{ numbers.next_page_number }}&items_per_page={{ items_per_page }}">next</a>
+                <a href="?page={{ numbers.paginator.num_pages }}&items_per_page={{ items_per_page }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+
+    <!-- Display the total number of pages -->
+    <p>Total pages: {{ page_count }}</p>
+</body>
+</html>

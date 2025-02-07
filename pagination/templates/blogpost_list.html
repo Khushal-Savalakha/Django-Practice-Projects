@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Posts</title>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+
+    <!-- Form to allow users to specify the number of items per page -->
+    <form method="get">
+        <label for="items_per_page">Items per page:</label>
+        <input type="number" id="items_per_page" name="items_per_page" value="{{ paginate_by }}">
+        <button type="submit">Update</button>
+    </form>
+
+    <!-- Display the paginated blog posts -->
+    <ul>
+        {% for post in posts %}
+            <li>{{ post.title }} - {{ post.created_at }}</li>
+        {% endfor %}
+    </ul>
+
+    <!-- Display pagination navigation -->
+    <div class="pagination">
+        <span class="step-links">
+            {% if page_obj.has_previous %}
+                <a href="?page=1&items_per_page={{ paginate_by }}">&laquo; first</a>
+                <a href="?page={{ page_obj.previous_page_number }}&items_per_page={{ paginate_by }}">previous</a>
+            {% endif %}
+
+            <span class="current">
+                Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+            </span>
+
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}&items_per_page={{ paginate_by }}">next</a>
+                <a href="?page={{ page_obj.paginator.num_pages }}&items_per_page={{ paginate_by }}">last &raquo;</a>
+            {% endif %}
+        </span>
+    </div>
+</body>
+</html>
